@@ -1,0 +1,15 @@
+https://leetcode.com/problems/last-stone-weight/description/
+
+
+
+class Solution(object):
+    def lastStoneWeight(self, stones):
+        stones.sort(reverse=True) 
+        while len(stones) > 1:
+            first = stones.pop(0) 
+            second = stones.pop(0)  
+            if first != second: 
+                stones.append(first - second)  
+                stones.sort(reverse=True)  
+
+        return stones[0] if stones else 0 
